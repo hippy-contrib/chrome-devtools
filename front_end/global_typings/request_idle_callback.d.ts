@@ -7,6 +7,8 @@ type RequestIdleCallbackDeadline = {
 };
 
 interface Window {
+  aegis: any;
+  DEVTOOLS_TABS: string[],
   requestIdleCallback: (
       callback: (deadline: RequestIdleCallbackDeadline) => void,
       opts?: RequestIdleCallbackOptions,

@@ -121,6 +121,7 @@ devtools_module("ui") {
     "XLink.ts",
     "XWidget.ts",
     "ZoomManager.ts",
+    "CustomPanel.ts",
   ]
 
   deps = [

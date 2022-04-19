@@ -48,6 +48,9 @@ devtools_entrypoint("bundle") {
     "../devtools_app:*",
     "../js_app:*",
     "../ndb_app:*",
+    "../hippy:*",
+    "../hippy_tdf:*",
+    "../tdf_core:*",
     "../node_app:*",
     "../worker_app:*",
   ]

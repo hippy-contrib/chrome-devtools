@@ -26,3 +26,11 @@ import '../../panels/console_counters/console_counters-meta.js';
 import '../../ui/legacy/components/object_ui/object_ui-meta.js';
 import '../main/main.js';
 // We generate the descriptors in this file, which depend on the runtime.
+import '../../panels/vue_devtools/vue_devtools-meta.js';
+import * as UI from '../../ui/legacy/legacy.js';
+import '../main/main-meta.js';
+
+// vue devtools is enable by debug-server event when js_runtime WSAppClient connected
+window.addEventListener('TDFRuntime.enableVueDevtools', () => {
+  UI.ViewManager.ViewManager.instance().showView('custom-vue-devtools', true, false);
+});

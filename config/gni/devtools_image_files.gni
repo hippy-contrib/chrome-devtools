@@ -29,6 +29,9 @@ devtools_image_files = [
   "touchCursor_2x.png",
   "touchCursor.png",
   "whatsnew.avif",
+  "favicon-Hippy.png",
+  "favicon-TDF.png",
+  "favicon-Voltron.png",
 ]
 
 devtools_svg_sources = [

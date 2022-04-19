@@ -38,6 +38,7 @@ devtools_entrypoint("entrypoint") {
     "../../:*",
     "../../legacy_test_runner:*",
     "../inspector:*",
+    "../hippy:*",
   ]
 
   visibility += devtools_entrypoints_visibility

@@ -22,6 +22,10 @@ module.exports = {
     'rulesdir/custom_element_definitions_location': 2,
     'rulesdir/custom_element_component_definition': 2,
   },
+  globals: {
+    aegis: true,
+    DEVTOOLS_TABS: true,
+  },
   'overrides': [
     {
       'files': ['*.ts'],

@@ -57,6 +57,7 @@ import * as XElement from './XElement.js';
 import * as XLink from './XLink.js';
 import * as XWidget from './XWidget.js';
 import * as ZoomManager from './ZoomManager.js';
+import * as CustomPanel from './CustomPanel.js';
 
 export {
   ActionRegistration,
@@ -114,4 +115,5 @@ export {
   XLink,
   XWidget,
   ZoomManager,
+  CustomPanel,
 };

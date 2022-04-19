@@ -249,6 +249,7 @@ export class SessionRouter {
     proxyConnection: ((Connection | undefined)|null),
   }>;
   #pendingScripts: (() => void)[];
+  #clientId: string;
 
   constructor(connection: Connection) {
     this.#connectionInternal = connection;
@@ -271,6 +272,12 @@ export class SessionRouter {
         session.target.dispose(reason);
       }
     });
+
+    const url = new URL(window.location.href);
+    const wsParam = url.searchParams.get('ws');
+    const wssParam = url.searchParams.get('wss');
+    const newUrl = new URL(wsParam ? `ws://${wsParam}` : `wss://${wssParam}`);
+    this.#clientId = newUrl.searchParams.get('clientId') as string;
   }
 
   registerSession(target: TargetBase, sessionId: string, proxyConnection?: Connection|null): void {
@@ -369,6 +376,49 @@ export class SessionRouter {
     }
 
     const messageObject = ((typeof message === 'string') ? JSON.parse(message) : message) as Message;
+    const method = messageObject.method;
+
+    if(method === 'TDFRuntime.enableVueDevtools') {
+      window.dispatchEvent(new Event('TDFRuntime.enableVueDevtools'));
+      if(window.aegis) {
+        window.aegis.reportEvent({
+          name: 'vue-devtools-enable',
+          ext1: this.#clientId,
+          ext2: messageObject.params!.contextName,
+        });
+      }
+      return;
+    }
+
+    const { performance } = messageObject as Message & {performance: any};
+    if(window.aegis && performance) {
+      const {
+        devtoolsToDebugServer,
+        debugServerReceiveFromDevtools,
+        debugServerToDevtools,
+      } = performance;
+      const devtoolsReceive = Date.now();
+      const ReportEvent = {
+        DevtoolsToDebugServer: 'devtools-to-debug-server',
+        DebugServerProxy: 'debug-server-proxy',
+        DebugServerToDevtools: 'debug-server-to-devtools',
+        CDPTotal: 'CDP-total',
+      };
+      function report (name: string, start: number, end: number) {
+        if(name && start && end) {
+          window.aegis?.reportTime({
+            name,
+            duration: end - start,
+            ext1: method,
+            ext2: ['localhost', '127.0.0.1'].includes(location.hostname) ? 'local' : 'remote',
+          });
+        }
+      }
+      report(ReportEvent.DevtoolsToDebugServer, devtoolsToDebugServer, debugServerReceiveFromDevtools);
+      report(ReportEvent.DebugServerProxy, debugServerReceiveFromDevtools, debugServerToDevtools);
+      report(ReportEvent.DebugServerToDevtools, debugServerToDevtools, devtoolsReceive);
+      report(ReportEvent.CDPTotal, devtoolsToDebugServer, devtoolsReceive);
+    }
 
     // Send all messages to proxy connections.
     let suppressUnknownMessageErrors = false;

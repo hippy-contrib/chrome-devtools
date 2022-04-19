@@ -22,6 +22,10 @@ module.exports = {
 
   'parserOptions': {'ecmaVersion': 9, 'sourceType': 'module'},
 
+  globals: {
+    aegis: true,
+    DEVTOOLS_TABS: true,
+  },
   /**
    * ESLint rules
    *

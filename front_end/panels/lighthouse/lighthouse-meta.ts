@@ -31,6 +31,7 @@ UI.ViewManager.registerViewExtension({
   id: 'lighthouse',
   title: i18n.i18n.lockedLazyString('Lighthouse'),
   commandPrompt: i18nLazyString(UIStrings.showLighthouse),
+  persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   order: 90,
   async loadView() {
     const Lighthouse = await loadLighthouseModule();

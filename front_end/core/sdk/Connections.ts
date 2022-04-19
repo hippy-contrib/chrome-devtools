@@ -7,8 +7,8 @@ import type * as Platform from '../platform/platform.js';
 import * as Host from '../host/host.js';
 import * as ProtocolClient from '../protocol_client/protocol_client.js';
 import * as Root from '../root/root.js';
+import { TargetManager } from './TargetManager.js';
 
-import {TargetManager} from './TargetManager.js';
 
 export class MainConnection implements ProtocolClient.InspectorBackend.Connection {
   onMessage: ((arg0: (Object|string)) => void)|null;
