@@ -1,4 +1,9 @@
 {
+  "name": "@hippy/chrome-devtools",
+  "version": "0.0.1",
+  "files": [
+    "out/Release/gen/front_end"
+  ],
   "author": "The Chromium Authors",
   "bugs": {
     "url": "https://bugs.chromium.org/p/chromium/issues/list?can=2&q=component:Platform%3EDevTools%20&sort=-opened&colspec=ID%20Stars%20Owner%20Summary%20Modified%20Opened"
@@ -13,7 +18,6 @@
     "debugger"
   ],
   "license": "BSD-3-Clause",
-  "name": "chrome-devtools-frontend",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ChromeDevTools/devtools-frontend.git"
