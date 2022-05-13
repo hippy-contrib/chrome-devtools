@@ -39,12 +39,17 @@ export class LogModel extends SDKModel<EventTypes> implements ProtocolProxyApi.L
   requestClear(): void {
     void this.#logAgent.invoke_clear();
   }
+
+  cleared(): void {
+    this.dispatchEventToListeners(Events.Clear, null);
+  }
 }
 
 // TODO(crbug.com/1167717): Make this a const enum again
 // eslint-disable-next-line rulesdir/const_enum
 export enum Events {
   EntryAdded = 'EntryAdded',
+  Clear = 'Clear',
 }
 
 export interface EntryAddedEvent {

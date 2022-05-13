@@ -378,7 +378,7 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
     this.clear();
   }
 
-  private clear(): void {
+  clear(): void {
     this.#messagesInternal = [];
     this.#messageByExceptionId.clear();
     this.#errorsInternal = 0;

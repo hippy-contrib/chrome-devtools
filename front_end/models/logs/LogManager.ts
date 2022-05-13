@@ -29,6 +29,7 @@ export class LogManager implements SDK.TargetManager.SDKModelObserver<SDK.LogMod
   modelAdded(logModel: SDK.LogModel.LogModel): void {
     const eventListeners = [];
     eventListeners.push(logModel.addEventListener(SDK.LogModel.Events.EntryAdded, this.logEntryAdded, this));
+    eventListeners.push(logModel.addEventListener(SDK.LogModel.Events.Clear, this.clear, this));
     modelToEventListeners.set(logModel, eventListeners);
   }
 
@@ -76,5 +77,9 @@ export class LogManager implements SDK.TargetManager.SDKModelObserver<SDK.LogMod
     } else {
       SDK.ConsoleModel.ConsoleModel.instance().addMessage(consoleMessage);
     }
+  }
+
+  clear(): void {
+    SDK.ConsoleModel.ConsoleModel.instance().clear();
   }
 }
