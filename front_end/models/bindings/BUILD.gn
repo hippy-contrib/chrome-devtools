@@ -61,6 +61,7 @@ devtools_entrypoint("bundle") {
     "../../panels/cdp_debug/*",
     "../../panels/core_performance/*",
     "../../panels/vue_devtools/*",
+    "../../panels/react_devtools/*",
     "../../panels/coverage/*",
     "../../panels/input/*",
     "../../panels/network/*",

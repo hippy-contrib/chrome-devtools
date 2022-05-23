@@ -378,11 +378,15 @@ export class SessionRouter {
     const messageObject = ((typeof message === 'string') ? JSON.parse(message) : message) as Message;
     const method = messageObject.method;
 
-    if(method === 'TDFRuntime.enableVueDevtools') {
-      window.dispatchEvent(new Event('TDFRuntime.enableVueDevtools'));
+    if(['TDFRuntime.enableVueDevtools', 'TDFRuntime.enableReactDevtools'].includes(method)) {
+      window.dispatchEvent(new Event(method));
       if(window.aegis) {
+        const name = {
+          'TDFRuntime.enableVueDevtools': 'vue-devtools-enable',
+          'TDFRuntime.enableReactDevtools': 'react-devtools-enable',
+        };
         window.aegis.reportEvent({
-          name: 'vue-devtools-enable',
+          name,
           ext1: this.#clientId,
           ext2: messageObject.params!.contextName,
         });

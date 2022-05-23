@@ -63,6 +63,7 @@ group("legacy_entrypoints") {
     "panels/cdp_debug:legacy",
     "panels/core_performance:legacy",
     "panels/vue_devtools:legacy",
+    "panels/react_devtools:legacy",
     "panels/coverage:legacy",
     "panels/elements:legacy",
     "panels/emulation:legacy",

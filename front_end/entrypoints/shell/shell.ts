@@ -27,10 +27,15 @@ import '../../ui/legacy/components/object_ui/object_ui-meta.js';
 import '../main/main.js';
 // We generate the descriptors in this file, which depend on the runtime.
 import '../../panels/vue_devtools/vue_devtools-meta.js';
+import '../../panels/react_devtools/react_devtools-meta.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import '../main/main-meta.js';
 
-// vue devtools is enable by debug-server event when js_runtime WSAppClient connected
+// vue or react devtools is enable by debug-server event when js_runtime WSAppClient connected
 window.addEventListener('TDFRuntime.enableVueDevtools', () => {
   UI.ViewManager.ViewManager.instance().showView('custom-vue-devtools', true, false);
+});
+
+window.addEventListener('TDFRuntime.enableReactDevtools', () => {
+  UI.ViewManager.ViewManager.instance().showView('custom-react-devtools', true, false);
 });
