@@ -164,6 +164,10 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     this.updateSecurityOrigins();
   }
 
+  frameUpdated(frameTree: Protocol.Page.FrameResourceTree): void {
+    this.processCachedResources(frameTree);
+  }
+
   frameAttached(
       frameId: Protocol.Page.FrameId, parentFrameId: Protocol.Page.FrameId|null,
       stackTrace?: Protocol.Runtime.StackTrace): ResourceTreeFrame|null {
@@ -1018,6 +1022,11 @@ export class PageDispatcher implements ProtocolProxyApi.PageDispatcher {
 
   documentOpened({frame}: Protocol.Page.DocumentOpenedEvent): void {
     this.#resourceTreeModel.documentOpened(frame);
+  }
+
+  frameUpdated({frameTree}: Protocol.Page.FrameUpdatedEvent): void {
+    if(frameTree)
+      {this.#resourceTreeModel.frameUpdated(frameTree);}
   }
 
   frameDetached({frameId, reason}: Protocol.Page.FrameDetachedEvent): void {

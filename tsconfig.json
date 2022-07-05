@@ -17,5 +17,6 @@
   ],
   "exclude": [
     "front_end/**/*-legacy.ts"
-  ]
+  ],
+  "sourceMap": false,
 }

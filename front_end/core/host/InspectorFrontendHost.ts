@@ -41,11 +41,6 @@ import {EventDescriptors, Events} from './InspectorFrontendHostAPI.js';
 import {streamWrite as resourceLoaderStreamWrite} from './ResourceLoader.js';
 
 const UIStrings = {
-  /**
-  *@description Document title in Inspector Frontend Host of the DevTools window
-  *@example {example.com} PH1
-  */
-  devtoolsS: 'DevTools - {PH1}',
 };
 const str_ = i18n.i18n.registerUIStrings('core/host/InspectorFrontendHost.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -123,7 +118,7 @@ export class InspectorFrontendHostStub implements InspectorFrontendHostAPI {
   }
 
   inspectedURLChanged(url: Platform.DevToolsPath.UrlString): void {
-    document.title = i18nString(UIStrings.devtoolsS, {PH1: url.replace(/^https?:\/\//, '')});
+    // document.title = i18nString(UIStrings.devtoolsS, {PH1: url.replace(/^https?:\/\//, '')});
   }
 
   copyText(text: string|null|undefined): void {

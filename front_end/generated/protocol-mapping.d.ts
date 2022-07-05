@@ -348,6 +348,7 @@ export namespace ProtocolMapping {
      * Fired when opening document to write to.
      */
     'Page.documentOpened': [Protocol.Page.DocumentOpenedEvent];
+    'Page.frameUpdated': [Protocol.Page.FrameUpdatedEvent];
     'Page.frameResized': [];
     /**
      * Fired when a renderer-initiated navigation is requested.

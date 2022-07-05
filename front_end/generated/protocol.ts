@@ -11706,6 +11706,13 @@ export namespace Page {
   }
 
   /**
+   * Fired when frame updated.
+   */
+  export interface FrameUpdatedEvent {
+    frameTree: FrameResourceTree;
+  }
+
+  /**
    * Fired once navigation of the frame has completed. Frame is now associated with the new loader.
    */
   export interface FrameNavigatedEvent {
