@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 // import * as Common from '../core/common/common.js';
 import * as UI from '../../ui/legacy/legacy.js';
-import * as Root from '../../core/root/root.js';
 import type * as VueDevtools from './vue_devtools.js';
 
 // UI.CustomPanel.registerPanelView({

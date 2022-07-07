@@ -15,6 +15,7 @@ const generatedTSConfig = {
     outDir: '.',
     baseUrl: '.',
     rootDir: path.dirname(originalFrontendMappedLocation),
+    sourceMap: false,
   },
   files: [
     originalFrontendMappedLocation,

@@ -15,8 +15,8 @@ declare_args() {
   devtools_skip_typecheck = build_with_chromium && !is_official_build
 }
 
-assert(!devtools_skip_typecheck || !is_official_build,
-       "Official build should not skip typecheck")
+# assert(!devtools_skip_typecheck || !is_official_build,
+#        "Official build should not skip typecheck")
 
 # Defines a target that compiles .ts files using TypeScript.
 # A temporary tsconfig.json is generated which uses the

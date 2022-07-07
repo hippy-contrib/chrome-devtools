@@ -2,6 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 // import * as Common from '../core/common/common.js';
+
+// @ts-nocheck
+
 import * as UI from '../../ui/legacy/legacy.js';
 import type * as ReactDevtools from './react_devtools.js';
 
@@ -20,8 +23,8 @@ async function loadReactDevtoolsModule() {
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
   id: 'custom-react-devtools',
-  title: () => ('React Devtools' as any),
-  commandPrompt: () => ('show React Devtools' as any),
+  title: () => ('React Devtools'),
+  commandPrompt: () => ('show React Devtools'),
   // set as closeable, firstscreen this tab is hidden, will change as visiable
   // when receive enableReactDevtools event
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,

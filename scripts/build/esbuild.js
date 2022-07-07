@@ -27,6 +27,8 @@ const plugin = {
 
 require('esbuild')
     .build({
+      sourcemap: false,
+      sourcesContent: false,
       entryPoints,
       outfile,
       bundle: true,

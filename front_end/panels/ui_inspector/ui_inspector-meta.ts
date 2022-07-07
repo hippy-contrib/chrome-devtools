@@ -5,14 +5,6 @@
 import * as UI from '../../ui/legacy/legacy.js';
 
 const UIStrings = {
-  /**
-  *@description Title of the Console tool
-  */
-  custom: 'UI Inspector',
-  /**
-  *@description Title of an action that shows the console.
-  */
-  showCustom: 'Show UI Inspector',
 };
 
 UI.CustomPanel.registerPanelView({

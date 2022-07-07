@@ -206,7 +206,11 @@ def runEsbuild(opts):
         ESBUILD_LOCATION,
         '--outdir=' + path.dirname(opts.tsconfig_output_location),
         '--log-level=warning',
-        '--sourcemap',
+        # '--external:fs',
+        # '--external:stream',
+        # '--external:path',
+        # '--bundle',
+        # '--sourcemap',
     ]
 
     if opts.module == 'commonjs':

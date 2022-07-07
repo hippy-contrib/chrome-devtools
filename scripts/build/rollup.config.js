@@ -34,7 +34,7 @@ const minifyHTMLStrategy = {
 /** @type {function({configDCHECK: boolean}): import("rollup").MergedRollupOptions} */
 // eslint-disable-next-line import/no-default-export
 export default commandLineArgs => ({
-  treeshake: false,
+  treeshake: true,
   context: 'self',
   output: [{
     format: 'esm',
